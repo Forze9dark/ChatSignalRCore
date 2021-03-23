@@ -1,0 +1,2 @@
+# ChatSignalRCore
+SignalR Core
