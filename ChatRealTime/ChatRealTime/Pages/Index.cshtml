@@ -1,0 +1,27 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Chat";
+}
+
+<div class="container">
+    <div class="row">
+        <label class="col-2">User:</label>
+        <input class="col-4" type="text" id="txtUser" />
+    </div>
+    <div class="row">
+        <label class="col-2">Message:</label>
+        <input class="col-4" type="text" id="txtMessage" />
+    </div>
+    <div class="row">
+        <input type="button" id="btnSend" value="Send" />
+    </div>
+</div>
+<div class="row">
+    <ul id="lstMessages">
+        
+    </ul>
+</div>
+
+<script src="~/js/signalr/dist/browser/signalr.js"></script>
+<script src="~/js/app/chat/chatHub.js"></script>
