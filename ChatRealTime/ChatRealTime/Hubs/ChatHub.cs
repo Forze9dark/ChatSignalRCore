@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.SignalR;
+﻿using ChatRealTime.Hubs.Interfaces;
+using ChatRealTime.Models;
+using Microsoft.AspNetCore.SignalR;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace ChatRealTime.Hubs
 {
-    public class ChatHub : Hub
+    public class ChatHub : Hub<IChat>
     {
-        public async Task SendMessage(string user, string message)
+        public async Task SendMessage(Message message)
         {
-            await Clients.All.SendAsync("GetMessage", user, message);
+            await Clients.All.GetMessage(message);
         }
     }
 }

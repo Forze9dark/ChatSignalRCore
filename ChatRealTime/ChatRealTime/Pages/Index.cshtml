@@ -6,22 +6,31 @@
 
 <div class="container">
     <div class="row">
-        <label class="col-2">User:</label>
-        <input class="col-4" type="text" id="txtUser" />
+        <label class="col-2">Usuario:</label>
+        <input class="form-control" type="text" id="txtUser" />
     </div>
     <div class="row">
-        <label class="col-2">Message:</label>
-        <input class="col-4" type="text" id="txtMessage" />
+        <label class="col-2">Mensaje:</label>
+        <input class="form-control" type="text" id="txtMessage" />
     </div>
-    <div class="row">
-        <input type="button" id="btnSend" value="Send" />
+    <div class="row pt-2">
+        <div class="col-6">
+            <input type="button" id="btnSend" class="btn-block btn-success" value="Enviar" />
+        </div>
+        <div class="col-6">
+            <input type="button" id="btnClear" class="btn-block btn-light" value="Limpiar" />
+        </div>
     </div>
 </div>
 <div class="row">
-    <ul id="lstMessages">
-        
-    </ul>
+   <div class="col-12">
+        <hr />
+   </div>
+</div>
+<div class="row">
+   <ul id="lstMessages">
+   </ul>
 </div>
 
-<script src="~/js/signalr/dist/browser/signalr.js"></script>
-<script src="~/js/app/chat/chatHub.js"></script>
+    <script src="~/js/signalr/dist/browser/signalr.js"></script>
+    <script src="~/js/app/chat/chatHub.js"></script>
