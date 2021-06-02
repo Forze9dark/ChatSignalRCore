@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31005.135
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatRealTime", "ChatRealTime\ChatRealTime.csproj", "{6E265A6D-57D6-41B9-A5D9-7283061CC671}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChatRealTime", "ChatRealTime\ChatRealTime.csproj", "{6E265A6D-57D6-41B9-A5D9-7283061CC671}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatRealTimeConsole", "ChatRealTime.Console\ChatRealTimeConsole.csproj", "{A9BAF73F-D276-49F9-8192-7C62089B6E17}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{6E265A6D-57D6-41B9-A5D9-7283061CC671}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6E265A6D-57D6-41B9-A5D9-7283061CC671}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6E265A6D-57D6-41B9-A5D9-7283061CC671}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9BAF73F-D276-49F9-8192-7C62089B6E17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9BAF73F-D276-49F9-8192-7C62089B6E17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9BAF73F-D276-49F9-8192-7C62089B6E17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9BAF73F-D276-49F9-8192-7C62089B6E17}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
