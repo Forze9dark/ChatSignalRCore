@@ -10,18 +10,44 @@ conexion.on("GetMessage", (message) => {
     document.getElementById("lstMessages").appendChild(li);
 });
 
-conexion.start()
-        .then(() => {
+document.getElementById("btnConnect").addEventListener("click", (e) => {
+    if (conexion.state === signalR.HubConnectionState.Disconnected) {
+        conexion.start().then(() => {
             let li = document.createElement('li');
-            li.textContent = `Bienvenido al chat`;
+            li.textContent = `Conexion Exitosa.`;
             document.getElementById("lstMessages").appendChild(li);
-        })
-        .catch((error) => {
+            document.getElementById("btnConnect").value = "Desconectar";
+            document.getElementById("txtUser").setAttribute("disabled", "true");
+            let txtUser = document.getElementById("txtUser").value;
+            const objMessage = {
+                user: txtUser,
+                content: ""
+            };
+            conexion.invoke("SendMessage", objMessage)
+                .catch((error) => {
+                    console.error(error);
+                });
+            document.getElementById("btnSend").removeAttribute("disabled");
+        }).catch((error) => {
             console.error(error);
- })
+        });
+    } else if (conexion.state === signalR.HubConnectionState.Connected) {
+        conexion.stop();
+        let li = document.createElement('li');
+        let txtUser = document.getElementById("txtUser").value;
+        li.textContent = `${txtUser} Ha salido del chat.`;
+        document.getElementById("lstMessages").appendChild(li);
+        document.getElementById("btnConnect").value = "Conectar";
+        document.getElementById("txtUser").removeAttribute("disabled");
+        document.getElementById("txtUser").value = "";
+    }
+});
 
 document.getElementById("btnSend").addEventListener("click", (e) => {
     e.preventDefault();
+    if (conexion.state !== signalR.HubConnectionState.Connected) {
+        return;
+    }
     let txtUser = document.getElementById("txtUser").value;
     let txtMessage = document.getElementById("txtMessage").value;
     const objMessage = {
@@ -32,14 +58,5 @@ document.getElementById("btnSend").addEventListener("click", (e) => {
             .catch((error) => {
                 console.error(error);
             });
-    txtMessage = "";
-});
-
-document.getElementById("btnClear").addEventListener("click", (e) => {
-    e.preventDefault();
-    document.getElementById("lstMessages").innerHTML = "";
-    document.getElementById("txtMessage").innerHTML = "";
-    let li = document.createElement('li');
-    li.textContent = `Bienvenido al chat`;
-    document.getElementById("lstMessages").appendChild(li);
+    document.getElementById("txtMessage").value = "";
 });
