@@ -6,6 +6,14 @@
 
 <div class="container">
     <div class="row">
+        <label class="col-2">Sala:</label>
+        <select class="form-control" id="txtRoom">
+            <option value="Sala1">Sala 1</option>
+            <option value="Sala2">Sala 2</option>
+            <option value="Sala3">Sala 3</option>
+        </select>
+    </div>
+    <div class="row">
         <label class="col-2">Usuario:</label>
         <input class="form-control" type="text" id="txtUser" />
     </div>
@@ -18,7 +26,11 @@
             <input type="button" id="btnConnect" class="btn-block btn-info" value="Conectar" />
         </div>
         <div class="col-6">
-            <input type="button" id="btnSend" class="btn-block btn-success" value="Enviar" disabled/>
+            <input type="button" id="btnSend" class="btn-block btn-success" value="Enviar" disabled />
+        </div>
+        <div class="col-6">
+            Tiempo en chat:
+            <label id="lblDuration">0</label>
         </div>
     </div>
 </div>

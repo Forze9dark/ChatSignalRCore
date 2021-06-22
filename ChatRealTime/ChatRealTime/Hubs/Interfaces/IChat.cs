@@ -10,5 +10,6 @@ namespace ChatRealTime.Hubs.Interfaces
     {
         Task SendMessage(Message message);
         Task GetMessage(Message message);
+        Task CounterAsync();
     }
 }
